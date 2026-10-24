@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({ plugins: [react()] })
+// Served from https://khush1t.github.io/anusha-events/
+export default defineConfig({ base: '/anusha-events/', plugins: [react()] })
