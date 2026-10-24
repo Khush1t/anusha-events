@@ -15,6 +15,7 @@ const intents = [
 export function Contact() {
   const [intent, setIntent] = useState(intents[0])
   const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
   const [society, setSociety] = useState('')
   const [date, setDate] = useState('')
 
@@ -22,7 +23,8 @@ export function Contact() {
     'Namaste Anusha Events!',
     intent.line,
     name && `Name: ${name}`,
-    society && `Society: ${society}`,
+    phone && `Phone: ${phone}`,
+    society && `Address: ${society}`,
     date && `Date: ${new Date(date + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}`,
   ].filter(Boolean).join('\n')
 
@@ -57,11 +59,15 @@ export function Contact() {
             <div className="fields">
               <label className="field-wrap">
                 <span>Your name</span>
-                <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Priya Sharma" autoComplete="name" />
+                <input value={name} maxLength={100} onChange={(e) => setName(e.target.value)} placeholder="Priya Sharma" autoComplete="name" />
               </label>
               <label className="field-wrap">
-                <span>Society &amp; sector</span>
-                <input value={society} onChange={(e) => setSociety(e.target.value)} placeholder="e.g. Sector 12, Dwarka" />
+                <span>Your phone <em>(optional)</em></span>
+                <input type="tel" inputMode="tel" value={phone} maxLength={10} pattern="[0-9]{10}" title="10-digit mobile number" onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))} placeholder="98XXXXXXXX" autoComplete="tel" />
+              </label>
+              <label className="field-wrap">
+                <span>Your address</span>
+                <input value={society} maxLength={400} onChange={(e) => setSociety(e.target.value)} placeholder="Society, sector, area" autoComplete="street-address" />
               </label>
               <div className="field-wrap">
                 <span id="date-label">Date in mind <em>(optional)</em></span>

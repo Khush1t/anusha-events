@@ -3,10 +3,10 @@
 
 export const contact = {
   name: 'Anusha Events',
-  phone: '+91 98000 00000', // TODO: real number (shown on site)
-  whatsapp: '919800000000', // TODO: same number, digits only with country code (for wa.me links)
-  instagram: 'https://instagram.com/', // TODO
-  email: 'anusha.events@gmail.com', // optional, leave empty to hide
+  phone: '+91 98912 90565', // TODO: real number (shown on site)
+  whatsapp: '919891290565', // TODO: same number, digits only with country code (for wa.me links)
+  instagram: 'https://www.instagram.com/anusha.events?vrfl=NnRhN3p2Z3E0MWZm', // TODO
+  email: '', // optional, leave empty to hide
 }
 
 export const waLink = (text: string) =>
